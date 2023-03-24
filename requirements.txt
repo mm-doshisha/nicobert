@@ -34,3 +34,4 @@ umap-learn
 flake8
 black
 isort
+beautifulsoup4
