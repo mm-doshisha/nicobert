@@ -1,0 +1,5 @@
+{
+    "tokenizer_mode": "sentencepiece",
+    "tokenizer_file": "all_corpus/sentencepiece/tokenizer.json",
+    "mecab_dic_path": "/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd"
+}

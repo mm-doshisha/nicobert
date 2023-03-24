@@ -1,0 +1,11 @@
+{
+    "train_file": "all_corpus/all_corpus_train.txt",
+    "validation_file": "all_corpus/all_corpus_valid.txt",
+    "max_seq_length": 512,
+    "mlm_probability": 0.15,
+    "line_by_line": true,
+    "pad_to_max_length": false,
+    "preprocessing_num_workers": 4,
+    "whole_word_mask": false,
+    "overwriter_cache": true
+}
