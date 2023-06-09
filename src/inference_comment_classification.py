@@ -12,11 +12,13 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 import torchtext
-from sklearn.metrics import cohen_kappa_score, f1_score, precision_score, recall_score
+from sklearn.metrics import (cohen_kappa_score, f1_score, precision_score,
+                             recall_score)
 from torch import nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from transformers import BertJapaneseTokenizer, BertModel, PreTrainedTokenizerFast
+from transformers import (BertJapaneseTokenizer, BertModel,
+                          PreTrainedTokenizerFast)
 
 from utils.datasets import VideoCommentDataset
 from utils.loader import load_tokenizer
@@ -172,7 +174,7 @@ def inference_dg(model, dataloader, reward=3.5):
             outputs, reservation = (
                 outputs[:, :-1],
                 outputs[:, -1],
-            ) 
+            )
 
             test_reservations.append(reservation)
             gain = torch.gather(outputs, dim=1, index=labels.unsqueeze(1)).squeeze()
@@ -181,7 +183,7 @@ def inference_dg(model, dataloader, reward=3.5):
 
             loss += batch_loss / len(inputs)
 
-            _, preds = torch.max(outputs, 1)  
+            _, preds = torch.max(outputs, 1)
 
             test_preds.append(preds)
             epoch_corrects += torch.sum(preds == labels.data)

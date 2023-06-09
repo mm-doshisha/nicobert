@@ -109,10 +109,10 @@ def train_model(model, dataloaders_dict, criterion, optimizer, num_epochs):
             if phase == "train":
                 model.train()
             else:
-                model.eval() 
+                model.eval()
 
             epoch_loss = 0.0
-            epoch_corrects = 0 
+            epoch_corrects = 0
             iteration = 1
 
             for batch in dataloaders_dict[phase]:
@@ -132,21 +132,21 @@ def train_model(model, dataloaders_dict, criterion, optimizer, num_epochs):
                     else:
                         outputs = model(inputs)
 
-                    loss = criterion(outputs, labels)  
+                    loss = criterion(outputs, labels)
 
-                    _, preds = torch.max(outputs, 1)  
+                    _, preds = torch.max(outputs, 1)
 
                     if phase == "train":
                         loss.backward()
                         optimizer.step()
 
-                        if iteration % 10 == 0:  
+                        if iteration % 10 == 0:
                             acc = (
                                 torch.sum(preds == labels.data)
                             ).double() / batch_size
                             if show_iter:
                                 print(
-                                        "iteration {} || loss: {:.4f} || 10iter. || accuracy: {}".format(
+                                    "iteration {} || loss: {:.4f} || 10iter. || accuracy: {}".format(
                                         iteration, loss.item(), acc
                                     )
                                 )
@@ -198,12 +198,12 @@ def train_model_dg(
     for epoch in range(num_epochs):
         for phase in ["train", "val"]:
             if phase == "train":
-                model.train()  
+                model.train()
             else:
-                model.eval()  
+                model.eval()
 
-            epoch_loss = 0.0  
-            epoch_corrects = 0  
+            epoch_loss = 0.0
+            epoch_corrects = 0
             iteration = 1
 
             for batch in dataloaders_dict[phase]:
@@ -233,21 +233,21 @@ def train_model_dg(
                         doubling_rate = (gain.add(reservation.div(reward))).log()
                         loss = -doubling_rate.mean()
                     else:
-                        loss = criterion(outputs[:, :-1], labels)  
+                        loss = criterion(outputs[:, :-1], labels)
 
-                    _, preds = torch.max(outputs, 1)  
+                    _, preds = torch.max(outputs, 1)
 
                     if phase == "train":
                         loss.backward()
                         optimizer.step()
 
-                        if iteration % 10 == 0:  
+                        if iteration % 10 == 0:
                             acc = (
                                 torch.sum(preds == labels.data)
                             ).double() / batch_size
                             if show_iter:
                                 print(
-                                        "iteration {} || loss: {:.4f} || 10iter. || accuracy: {}".format(
+                                    "iteration {} || loss: {:.4f} || 10iter. || accuracy: {}".format(
                                         iteration, loss.item(), acc
                                     )
                                 )
