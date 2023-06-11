@@ -1,22 +1,23 @@
 # nicobert
-> **Note**  
-> This repository is under construction.
 
 Preprocessing and experiments code of our paper [Effective Language Representations for Danmaku Comment Classification in Nicovideo](https://www.jstage.jst.go.jp/article/transinf/E106.D/5/E106.D_2022DAP0010/_article/-char/ja/)
 
 ## Getting started
 ### Setting up the environment
+
 ```
 pip install -r requirements.txt
 ```
 
 ### pre-training 
+
 (requires real data, but we cannot provide it for some reasons.)
 ```
 bash ./scripts/run_mlm.sh
 ```
 
 ### fine-tuning
+
 ```
 bash ./scripts/run_classification.sh {downstream_task_file}
 ```
