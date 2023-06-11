@@ -10,6 +10,17 @@ Preprocessing and experiments code of our paper [Effective Language Representati
 pip install -r requirements.txt
 ```
 
+### pre-training 
+(requires real data, but we cannot provide it for some reasons.)
+```
+bash ./scripts/run_mlm.sh
+```
+
+### fine-tuning
+```
+bash ./scripts/run_classification.sh {downstream_task_file}
+```
+
 ## Acknowledgments
 
 This study used "Nicopedia data" and "Nicovideo Comment etc. data", provided by DWANGO Co., Ltd. through the [National Institute of Informatics Research Data Repository](https://www.nii.ac.jp/dsc/idr/).
